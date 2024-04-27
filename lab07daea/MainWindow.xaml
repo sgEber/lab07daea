@@ -1,0 +1,15 @@
+﻿<Window x:Class="lab07daea.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab07daea"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Customers list" HorizontalAlignment="Left" Margin="248,40,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click"/>
+        <DataGrid Name="CustomersTable" Margin="135,95,86,70"/>
+        <TextBox x:Name="txtNombre"  HorizontalAlignment="Left" Margin="661,41,0,0" TextWrapping="Wrap" Text="nombre" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.397,0.18"/>
+        <Button Content="Custom by Name" HorizontalAlignment="Left" Margin="503,40,0,0" VerticalAlignment="Top" Width="112" Click="Button_Click_1"/>
+    </Grid>
+</Window>

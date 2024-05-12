@@ -5,11 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab07daea"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Customers list" HorizontalAlignment="Left" Margin="248,40,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click"/>
-        <DataGrid Name="CustomersTable" Margin="135,95,86,70"/>
-        <TextBox x:Name="txtNombre"  HorizontalAlignment="Left" Margin="661,41,0,0" TextWrapping="Wrap" Text="nombre" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.397,0.18"/>
-        <Button Content="Custom by Name" HorizontalAlignment="Left" Margin="503,40,0,0" VerticalAlignment="Top" Width="112" Click="Button_Click_1"/>
+        Title="MainWindow" Height="716" Width="1139">
+    <Grid Margin="0,0,603,227">
+        <Button Content="Customers list" HorizontalAlignment="Left" Margin="36,35,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click"/>
+        <DataGrid Name="CustomersTable" Margin="36,98,56,139"/>
+        <TextBox x:Name="txtNombre"  HorizontalAlignment="Left" Margin="360,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.397,0.18"/>
+        <Button Content="Custom by Name" HorizontalAlignment="Left" Margin="200,35,0,0" VerticalAlignment="Top" Width="112" Click="Button_Click_1"/>
+
+        <Label Content="Regsitrase" Margin="680,32,-222,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtname" Margin="680,98,-319,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtaddress" Margin="680,156,-319,0" TextWrapping="Wrap" Text="Dirección" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtcelular" Margin="680,216,-319,0" TextWrapping="Wrap" Text="Celular" VerticalAlignment="Top"/>
+        <Button Content="Guardar" Margin="729,280,-294,0" VerticalAlignment="Top" Click="Button_Click_2"/>
+        <TextBox x:Name="txtIdDelete" Margin="670,384,-309,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top"/>
+        <Button Content="Delete By Name" Margin="670,424,-235,0" VerticalAlignment="Top" Click="Button_Click_3"/>
+        
+
     </Grid>
 </Window>

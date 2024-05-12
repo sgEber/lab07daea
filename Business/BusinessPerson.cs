@@ -36,6 +36,18 @@ namespace Business
             return filteredPeople.Take(1).ToList();
         }
 
+        public void AddNewPerson(Person newPerson)
+        {
+            PersonData data = new PersonData();
+            data.InsertNewCustomer(newPerson.Name, newPerson.Address, newPerson.Phone);
+        }
+
+        public void DeletePerson(int id)
+        {
+            PersonData data = new PersonData();
+            data.DeleteCustomer(id);
+        }
+
 
     }
 }

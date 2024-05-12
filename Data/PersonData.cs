@@ -46,11 +46,45 @@ namespace Data
         }
 
 
-        public void Insert() { }
+        public void InsertNewCustomer(string name, string address, string phone)
+        {
+            string connectionString = "Data Source=EBER\\SQLEXPRESS; Initial Catalog=FacturaDB; User Id=angel; Password=123456;";
+            string usp = "USPCreateCustomer";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(usp, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@address", address);
+                    command.Parameters.AddWithValue("@phone", phone);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
         public void Update() { }
 
-        public void Delete() { }
+        public void DeleteCustomer(int customerId)
+        {
+            string connectionString = "Data Source=EBER\\SQLEXPRESS; Initial Catalog=FacturaDB; User Id=angel; Password=123456;";
+            string usp = "USPDeleteCustomer";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(usp, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@customerid", customerId);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
     }
 }

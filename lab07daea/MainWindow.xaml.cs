@@ -49,27 +49,83 @@ namespace lab07daea
         {
             string nombre = txtNombre.Text;
 
-            // Assuming you have a method to get people by name
+
             List<Person> people = new List<Person>();
             BusinessPerson listpeoplea = new BusinessPerson();
             people = listpeoplea.GetPeopleByName(nombre);
 
-            // Create a DataTable and add columns (adjust column names as needed)
+
             DataTable dt = new DataTable();
             dt.Columns.Add("CustomerID", typeof(int));
             dt.Columns.Add("Name", typeof(string));
             dt.Columns.Add("Address", typeof(string));
             dt.Columns.Add("Phone", typeof(string));
 
-            // Populate the DataTable with people data
+
             foreach (var person in people)
             {
                 dt.Rows.Add(person.PersonID, person.Name, person.Address, person.Phone);
             }
 
-            // Set the DataGrid's ItemsSource to the DefaultView of the DataTable
             CustomersTable.ItemsSource = dt.DefaultView;
         }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+            Person newPerson = new Person()
+            {
+                Name = txtname.Text,
+                Address = txtaddress.Text,
+                Phone = txtcelular.Text 
+            };
+
+            BusinessPerson business = new BusinessPerson();
+            business.AddNewPerson(newPerson);
+
+
+            MessageBox.Show("Cliente añadido con éxito.");
+
+        
+            txtname.Text = "";
+            txtaddress.Text = "";
+            txtcelular.Text = "";
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+            if (!string.IsNullOrWhiteSpace(txtIdDelete.Text))
+            {
+ 
+                bool isNumeric = int.TryParse(txtIdDelete.Text, out int customerId);
+
+                if (isNumeric)
+                {
+
+                    BusinessPerson business = new BusinessPerson();
+
+                    business.DeletePerson(customerId);
+
+   
+                    MessageBox.Show("Cliente eliminado con éxito.");
+
+                   
+                    Button_Click(sender, e); 
+
+              
+                    txtIdDelete.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingresa un ID válido.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El campo de ID no puede estar vacío.");
+            }
+        }
     }
 }
